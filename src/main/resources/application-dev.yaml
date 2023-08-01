@@ -1,0 +1,124 @@
+server:
+  port: 8081
+  env: test
+spring:
+  cloud:
+    nacos:
+      config:
+        enabled: false
+  boot:
+    admin:
+      client:
+        url: http://localhost:9001
+  datasource:
+    dynamic:
+      primary: mysql
+      strict: false
+      # 配置多数据源
+      datasource:
+        mysql:
+          url: jdbc:mysql://xxx.xxx.xxx.xxx:3306/xxxx?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+          username: root
+          password: root
+          hikari:
+            connection-init-sql: set names utf8mb4
+  #        oracle:
+  #          url: jdbc:oracle:thin:@47.97.27.187:1521:XE
+  #          username: hcc
+  #          password: hcc
+  # 配置文件上传大小
+  servlet:
+    multipart:
+      max-file-size: 32MB
+      max-request-size: 32MB
+  # redis配置
+  thymeleaf:
+    cache: false
+  data:
+    redis:
+      database: 1
+      password: 123456
+      port: 6379
+      host: xxx.xxx.xxx.xxx
+#nacos:
+#  config:
+#    server-addr: nacos.anlu.fun
+#    namespace: dev
+#    group: DEFAULT_GROUP
+#    bootstrap:
+#      enable: true
+#    type: yaml
+#    auto-refresh: true
+#    enable-remote-sync-config: true
+#    remote-first: true
+#    data-ids: application.yml,datasource.yml
+rocketmq:
+  name-server: 127.0.0.1:9876
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+# 配置常量
+others:
+  notion:
+    reboot: xxx.xxx.xxx.xxx
+    pereId: xxx.xxx.xxx.xxx
+  wx:
+    appId: xxxxxxx
+    appKey: xxxxxxx
+  wxReboot:
+    key: xxx.xxx.xxx.xxx
+    url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=
+    weather: http://wthrcdn.etouch.cn/weather_mini
+  dict:
+    localUrl: xxx.xxx.xxx.xxx
+    onlineUrl: /home/java/jar/erpTest/doc/
+  gdMap:
+    key: xxx.xxx.xxx.xxx
+  bark:
+    url: xxx.xxx.xxx.xxx
+minio:
+  endpoint: http://xxx.xxx.xxx.xxx:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: demo
+keys:
+  list:
+    - sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    - sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    - sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# 线程池配置
+async:
+  executor:
+    thread:
+      corePoolSize: 8
+      maxPoolSize: 16
+      queueCapacity: 128
+      name:
+        prefix: async-service-
+mybatis-plus:
+  configuration:
+    # 驼峰
+    map-underscore-to-camel-case: true
+    # 为空是否返回
+    call-setters-on-nulls: true
+    type-aliases-package: com.example.model.*
+  mapper-locations: classpath:mapper/*.xml
+# 日志配置
+logging:
+  level:
+    com.example.mapper: debug
+management:
+  #actuator端口 如果不配置做默认使用上面8080端
+  endpoints:
+    web:
+      exposure:
+        #默认值访问health,info端点  用*可以包含全部端点
+        include: "*"
+      #修改访问路径 2.0之前默认是/; 2.0默认是/actuator可以通过这个属性值修改
+      base-path: /actuator
+  endpoint:
+    shutdown:
+      enabled: true #打开shutdown端点
+    health:
+      show-details: always #获得健康检查中所有指标的详细信息

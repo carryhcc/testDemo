@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserConfigMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.model.UserConfig">
+        <id property="id" column="ID" jdbcType="DECIMAL"/>
+        <result property="userId" column="USER_ID" jdbcType="DECIMAL"/>
+        <result property="role" column="ROLE" jdbcType="VARCHAR"/>
+        <result property="isEnabled" column="IS_ENABLED" jdbcType="DECIMAL"/>
+        <result property="createAt" column="CREATE_AT" jdbcType="TIMESTAMP"/>
+        <result property="updateAt" column="UPDATE_AT" jdbcType="TIMESTAMP"/>
+        <result property="userLevel" column="USER_LEVEL" jdbcType="VARCHAR"/>
+        <result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
+        <result property="ip" column="IP" jdbcType="VARCHAR"/>
+        <result property="mac" column="MAC" jdbcType="VARCHAR"/>
+        <result property="payType" column="PAY_TYPE" jdbcType="VARCHAR"/>
+        <result property="creditCardsType" column="CREDIT_CARDS_TYPE" jdbcType="VARCHAR"/>
+        <result property="creditCardsNumber" column="CREDIT_CARDS_NUMBER" jdbcType="VARCHAR"/>
+        <result property="creditCardsDate" column="CREDIT_CARDS_DATE" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID
+        ,USER_ID,ROLE,
+        ISENABLED,CREATE_AT,UPDATE_AT,
+        USER_LEVEL,REMARKS,IP,
+        MAC,PAY_TYPE,CREDIT_CARDS_TYPE,
+        CREDIT_CARDS_NUMBER,CREDIT_CARDS_DATE
+    </sql>
+</mapper>

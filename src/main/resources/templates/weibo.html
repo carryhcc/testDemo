@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>weibo</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#jiami").on("click", function () {
+                jiamicode()
+            })
+            $("#jiemi").on("click", function () {
+                jiemicode()
+            })
+        })
+        function jiamicode() {
+            $.post(
+                "/phoneSelectWeibo",
+                {phone: $("input[name=codee]").val()},
+                function (data) {
+                    $("#result").html(data)
+                })
+        }
+        function jiemicode() {
+            $.post(
+                "/weiboSelectPhone",
+                {uid: $("input[name=ccode]").val()},
+                function (data) {
+                    $("#result").html(data)
+                })
+        }
+    </script>
+</head>
+<h1>weibo</h1>
+<label>
+    查询微博地址：
+    <input name="codee" type="text"/>
+    <button id="jiami">查询</button>
+    <br>
+</label>
+<label>
+    查询手机号：
+    <input name="ccode" type="text">
+    <button id="jiemi">查询</button>
+    <br>
+</label>
+<hr>
+<br>
+返回结果：
+<div id="result"></div>
+</html>
