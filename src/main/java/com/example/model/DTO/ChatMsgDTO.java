@@ -6,15 +6,15 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by IntelliJ IDEA.
- *
- * @author : cchu
- * Date: 2023/3/16 14:53
+ * Represents a chat message data transfer object.
+ * This class extends the Page class and implements the Serializable interface.
+ * It provides data fields to store the ID, IP, start time, and end time of a chat message.
  */
 @Data
 public class ChatMsgDTO extends Page implements Serializable {
