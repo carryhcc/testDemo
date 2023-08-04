@@ -1,0 +1,49 @@
+# 这是一个样板文件，可能需要在您的项目中进行编辑才能正常工作。
+# 这是一个示例的GitLab CI/CD配置文件，应该不需要任何修改即可运行。
+# 它演示了一个基本的3阶段CI/CD流水线。而不是使用真实的测试或脚本，
+# 它使用echo命令来模拟流水线执行。
+#
+# 流水线由独立的作业组成，这些作业运行脚本，分组在阶段中。
+# 阶段按顺序运行，但是阶段中的作业并行运行。
+#
+# 更多信息，请参阅：https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+#
+# 您可以将此模板复制粘贴到新的`.gitlab-ci.yml`文件中。
+# 不要使用`include:`关键字将此模板添加到现有的`.gitlab-ci.yml`文件中。
+#
+# 要为CI/CD模板做出改进，请遵循开发指南：
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# 此特定模板位于：
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+stages:          # 作业的阶段列表，以及它们的执行顺序
+  - build
+  - test
+  - deploy
+
+build-job:       # 此作业运行在build阶段，该阶段首先运行。
+  stage: build
+  script:
+    - echo "正在编译代码..."
+    - echo "编译完成。"
+
+unit-test-job:   # 此作业运行在test阶段。
+  stage: test    # 它只有在build阶段的作业成功完成后才会开始执行。
+  script:
+    - echo "运行单元测试... 这将需要约60秒。"
+    - sleep 60
+    - echo "代码覆盖率为90%"
+
+lint-test-job:   # 此作业也在test阶段运行。
+  stage: test    # 它可以与unit-test-job同时运行（并行）。
+  script:
+    - echo "代码检查... 这将需要约10秒。"
+    - sleep 10
+    - echo "没有发现代码问题。"
+
+deploy-job:      # 此作业运行在deploy阶段。
+  stage: deploy  # 它只有在test阶段的*所有*作业成功完成后才会运行。
+  environment: production
+  script:
+    - echo "正在部署应用程序..."
+    - echo "应用程序成功部署。"
