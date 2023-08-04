@@ -53,6 +53,7 @@ public class TestController {
     @Cacheable(value = "chat_msg_cache", key = "#root.args", unless = "#result.data.size == 0 ")
     public Result ring(@RequestBody ChatMsgDTO dto) {
         log.warn("环境为" + env);
+        log.info("测试对象 dto, {}",dto);
         Page<ChatMsg> page = new Page<>(dto.getPageNumber(), dto.getPageSize());
         QueryWrapper<ChatMsg> wrapper = new QueryWrapper<>();
         wrapper.eq(ObjectUtil.isNotEmpty(dto.getId()), "id", dto.getId())
@@ -62,6 +63,7 @@ public class TestController {
                 .orderByDesc("add_time")
                 .select("id", "question", "answer");
         Page<ChatMsg> pageListInfo = chatMsgService.page(page, wrapper);
+        log.info("测试对象列表 pageListInfo, {}",pageListInfo.getRecords());
         // 彩虹计数 [1,2,3] 参数意义分别为：当前页、总页数、每屏展示的页数
         int[] rainbow = PageUtil.rainbow((int) pageListInfo.getCurrent(), (int) pageListInfo.getPages(), (int) pageListInfo.getSize());
         pageListInfo.setCountId(Arrays.toString(rainbow));
