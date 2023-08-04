@@ -3,12 +3,23 @@ package com.example.model;
 import lombok.Data;
 
 
-
 /**
- * Created by IntelliJ IDEA.
+ * The {@code Notion} class represents a notion object.
+ * It stores the attributes of a notion, including a reboot, peteId, title, and message.
+ * The class uses Lombok's {@code @Data} annotation to automatically generate getter and setter methods.
  *
- * @author : cchu
- * Date: 2021/12/28 15:47
+ * <p>
+ * Example usage:
+ * <pre>
+ *     Notion notion = new Notion();
+ *     notion.setReboot("reboot");
+ *     notion.setPereId("pereId");
+ *     notion.setTitle("title");
+ *     notion.setMsg("message");
+ * </pre>
+ * </p>
+ *
+ * @see Data
  */
 
 @Data
