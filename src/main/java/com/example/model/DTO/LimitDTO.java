@@ -2,11 +2,10 @@ package com.example.model.DTO;
 
 import lombok.Data;
 
+
 /**
- * Created by IntelliJ IDEA.
- *
- * @author : cchu
- * Date: 2023/1/12 21:02
+ * The LimitDTO class represents the pagination limit for a data request.
+ * It contains the page number and the size of each page.
  */
 @Data
 public class LimitDTO {
