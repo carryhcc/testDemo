@@ -31,12 +31,13 @@ public class KeyManager implements ApplicationRunner {
         return keyQueue.next();
     }
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(ApplicationArguments args) {
         try {
             log.info("开始配置KEY队列");
             List<String> list = config.getList();
             List<String> listDesensitized = new ArrayList<>();
             for (String key : list) {
+                // 脱敏处理
                 listDesensitized.add(DesensitizedUtil.idCardNum(key, 3, 8));
             }
             log.info("找到" + list.size() + "个配置的KEY"+"配置为"+ Arrays.toString(listDesensitized.toArray()));
@@ -44,7 +45,7 @@ public class KeyManager implements ApplicationRunner {
                 keyQueue.add(key);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("获取key异常: ", e);
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.concurrent.*;
 public class ThreadPoolService {
 
     /**
-     * 自定义线程名称,方便的出错的时候溯源
+     * 自定义线程名称,方便出错的时候溯源
      */
     private static ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("HISCADA-POOL-%d").build();
 

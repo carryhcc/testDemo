@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * Created by IntelliJ IDEA.
+ * Mybatis 策略
  *
  * @author : cchu
  * Date: 2022/2/9 15:15
