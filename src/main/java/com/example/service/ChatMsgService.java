@@ -5,7 +5,7 @@ import com.example.model.ChatMsg;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by IntelliJ IDEA.
+ * msg保存类
  *
  * @author : cchu
  * Date: 2023/3/16 14:54

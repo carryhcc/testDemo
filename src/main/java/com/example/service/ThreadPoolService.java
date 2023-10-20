@@ -5,7 +5,6 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.concurrent.*;
 
 /**
- * @param null :
  * @author :
  * @date : 2021/8/4 15:55
  * @return : null
@@ -17,7 +16,7 @@ public class ThreadPoolService {
     /**
      * 自定义线程名称,方便出错的时候溯源
      */
-    private static ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("HISCADA-POOL-%d").build();
+    private static final ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("HISCADA-POOL-%d").build();
 
     /**
      * corePoolSize    线程池核心池的大小
@@ -46,8 +45,8 @@ public class ThreadPoolService {
      * 　　ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务。
      */
     private static ExecutorService service = new ThreadPoolExecutor(
-            4,
             10,
+            20,
             0L,
             TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>(4),
@@ -70,28 +69,11 @@ public class ThreadPoolService {
      * @param r 任务
      */
     public static void newTask(Runnable r) {
+        System.out.println("创建任务成功");
         service.execute(r);
     }
 
     public static void shutdown() {
         service.shutdown();
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 20; i++) {
-            int finalI = i;
-            Runnable r = new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println("当前线程为:" + finalI);
-                    try {
-                        Thread.sleep(1 * 1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            newTask(r);
-        }
     }
 }
