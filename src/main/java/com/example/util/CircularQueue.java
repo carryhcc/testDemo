@@ -33,7 +33,9 @@ public class CircularQueue<E> {
         final Node<E> newNode = new Node<>(l, e, first);
         last = newNode;
 
-        if (node == null) node = newNode; //指针
+        if (node == null) {
+            node = newNode; //指针
+        }
         if (l == null) {
             first = newNode;
             first.prev = first;

@@ -18,5 +18,5 @@ public interface WxRebootService {
      */
     void runText(String msg);
 
-    void runLogTimeMsg();
+    void runDailyMsg();
 }

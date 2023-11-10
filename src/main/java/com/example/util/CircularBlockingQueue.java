@@ -36,7 +36,9 @@ public class CircularBlockingQueue<E> extends CircularQueue<E> {
             putLock.lockInterruptibly();
             super.add(e);
 
-            if (listener != null) listener.afterAdd(e);
+            if (listener != null) {
+                listener.afterAdd(e);
+            }
 
             return true;
         } catch (InterruptedException exp) {
@@ -83,7 +85,9 @@ public class CircularBlockingQueue<E> extends CircularQueue<E> {
         try {
             putLock.lockInterruptibly();
 
-            if (listener != null) listener.afterAdd(e);
+            if (listener != null) {
+                listener.afterAdd(e);
+            }
 
             return super.remove(e);
         } catch (InterruptedException exp) {

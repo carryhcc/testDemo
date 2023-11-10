@@ -51,7 +51,8 @@ public class EmojiController {
             String hostAddress = InetAddress.getLocalHost().getHostAddress();
             emojiMsg.setIp(hostAddress);
         } catch (UnknownHostException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            log.error(e.getMessage());
         }
         emojiMsg.setCreateAt(new Date());
         service.save(emojiMsg);

@@ -64,7 +64,7 @@ public class Tools {
         JSONObject returnJson = JSONUtil.parseObj(result);
         log.info("当前时间详情：" + returnJson);
 //        服务状态
-        if (returnJson.get("code").toString().equals("0")) {
+        if ("0".equals(returnJson.get("code").toString())) {
             String type = returnJson.get("type").toString();
             System.out.println("日期详情" + type);
             // type  0 正常工作日 1 周末 2 节假日

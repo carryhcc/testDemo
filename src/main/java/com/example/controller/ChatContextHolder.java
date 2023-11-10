@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ChatContextHolder {
 
-    private static Map<String, List<Message>> context = new HashMap<>();
+    private static final Map<String, List<Message>> context = new HashMap<>();
 
 
     /**

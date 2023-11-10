@@ -96,7 +96,8 @@ public class WxRebootServiceImpl implements WxRebootService {
     }
 
     @Override
-    public void runLogTimeMsg() {
+    @Deprecated
+    public void runDailyMsg() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("msgtype", "news");
         HashMap<String, Object> news = new HashMap<>();
@@ -104,8 +105,8 @@ public class WxRebootServiceImpl implements WxRebootService {
         Articles articles = new Articles();
         articles.setTitle("logTime");
         articles.setDescription("每日填写logTime！！！");
-        articles.setUrl("https://jira.yyjzt.com/secure/Tempo.jspa#/reports/report/7f70b14d-f568-40e2-92bf-73de3f50a6d6?columns=WORKED_COLUMN&dateDisplayType=days&from=2022-05-01&groupBy=worker&periodType=CURRENT_PERIOD&subPeriodType=MONTH&teamId=14&to=2022-05-31&viewType=TIMESHEET");
-        articles.setPicurl("https://img.jk.com/home/home_icon.png");
+        articles.setUrl("");
+        articles.setPicurl("");
         articlesList.add(articles);
         news.put("articles", articlesList);
         map.put("news", news);
