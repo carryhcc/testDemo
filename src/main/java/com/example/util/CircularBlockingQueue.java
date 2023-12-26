@@ -3,7 +3,6 @@ package com.example.util;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Created by giant039 on 2017/3/17.
  * 阻塞环形队列 高并发
  *
  * @param <E>

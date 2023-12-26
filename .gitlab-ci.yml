@@ -1,3 +1,16 @@
+qodana:
+  only:
+    - dev
+    - main
+    - merge_requests
+  image:
+    name: jetbrains/qodana-jvm
+    entrypoint: [""]
+  variables:
+    QODANA_TOKEN: $qodana_token
+  script:
+    - qodana --save-report --results-dir=$CI_PROJECT_DIR/.qodana
+
 # 这是一个样板文件，可能需要在您的项目中进行编辑才能正常工作。
 # 这是一个示例的GitLab CI/CD配置文件，应该不需要任何修改即可运行。
 # 它演示了一个基本的3阶段CI/CD流水线。而不是使用真实的测试或脚本，

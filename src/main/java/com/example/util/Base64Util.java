@@ -1,7 +1,6 @@
 package com.example.util;
 
 /**
- * Created by IntelliJ IDEA.
  * Base64 工具类
  *
  * @author : cchu
