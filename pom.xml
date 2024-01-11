@@ -19,9 +19,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql.version>8.0.33</mysql.version>
         <oracle.version>21.9.0.0</oracle.version>
-        <myBatisPlus.version>3.5.3.1</myBatisPlus.version>
-        <huTool.version>5.8.18</huTool.version>
-        <spring.version>3.1.0</spring.version>
+        <myBatisPlus.version>3.5.5</myBatisPlus.version>
+        <huTool.version>5.8.24</huTool.version>
+        <spring.version>3.2.1</spring.version>
     </properties>
     <dependencies>
         <dependency>
@@ -139,6 +139,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <version>2.2.220</version>
             <scope>runtime</scope>
         </dependency>
 <!--        <dependency>-->
@@ -176,14 +177,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.vdurmont</groupId>
-            <artifactId>emoji-java</artifactId>
-            <version>5.1.1</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
+            <version>32.0.0-android</version>
         </dependency>
         <!--        mybatis-plus 核心-->
         <dependency>
@@ -233,7 +229,7 @@
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
-            <version>8.5.2</version>
+            <version>8.5.7</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.squareup.okhttp3</groupId>
@@ -253,23 +249,23 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>5.0.0-alpha.11</version>
+            <version>5.0.0-alpha.12</version>
         </dependency>
         <!-- Nacos 组件依赖 -->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-config-spring-boot-starter</artifactId>
-            <version>0.2.12</version>
+            <version>0.3.0-RC</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>2022.0.0.0-RC1</version>
+            <version>2022.0.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-resolver-dns-native-macos</artifactId>
-            <version>4.1.90.Final</version>
+            <version>4.1.104.Final</version>
             <classifier>osx-aarch_64</classifier>
         </dependency>
 <!--        springBootAdmin-->
@@ -281,7 +277,7 @@
         <dependency>
             <groupId>com.github.plexpt</groupId>
             <artifactId>chatgpt</artifactId>
-            <version>4.0.4</version>
+            <version>4.3.0</version>
         </dependency>
 <!--mq-->
         <dependency>
