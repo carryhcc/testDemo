@@ -6,7 +6,7 @@ import cn.hutool.core.util.HexUtil;
 import cn.hutool.core.util.StrUtil;
 
 /**
- * Created by IntelliJ IDEA.
+ * UnicodeUtil 工具类
  *
  * @author : cchu
  * Date: 2021/12/16 14:56

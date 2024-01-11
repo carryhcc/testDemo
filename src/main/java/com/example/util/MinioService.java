@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by IntelliJ IDEA.
+ * Minio服务类
  *
  * @author : cchu
  * Date: 2022/1/25 15:51
