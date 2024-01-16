@@ -1,7 +1,9 @@
 package com.example.controller;
 
 import com.example.model.Result;
-import com.example.util.MinioService;
+import com.kangaroohy.minio.service.MinioService;
+import io.minio.ObjectWriteResponse;
+import io.minio.errors.MinioException;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.IOUtils;
@@ -42,7 +44,7 @@ public class MinioController {
      * @return
      */
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(Model model) throws MinioException {
         model.addAttribute("list", minioService.listObjects());
         return "list";
     }
@@ -54,8 +56,8 @@ public class MinioController {
      * @return
      */
     @GetMapping("/delete")
-    public Result delete(@RequestParam String filename) {
-        minioService.deleteObject(filename);
+    public Result delete(@RequestParam String filename) throws MinioException {
+        minioService.removeObject(filename);
         return Result.success(filename + "删除成功");
     }
 
@@ -67,18 +69,13 @@ public class MinioController {
      * @throws IOException
      */
     @PostMapping("/upload")
-    public Result<String> upload(@RequestParam("file") MultipartFile file) throws IOException {
-        //得到文件流
-        InputStream is = file.getInputStream();
-        //源文件名
-        String fileName = file.getOriginalFilename();
-        //存储到minio的文件名
-        String newFileName = System.currentTimeMillis() + "." + StringUtils.substringAfterLast(fileName, ".");
-        //类型
-        String contentType = file.getContentType();
-        minioService.uploadObject(is, newFileName, contentType);
-        //返回下载地址
-        return Result.success(endpoint + "/" + bucketName + "/" + newFileName);
+    public Result<String> upload(@RequestParam("file") MultipartFile file) throws IOException, MinioException {
+        InputStream fileInputStream = file.getInputStream(); //得到文件流
+        String fileName = file.getOriginalFilename(); //源文件名
+        String newFileName = System.currentTimeMillis() + "." + StringUtils.substringAfterLast(fileName, ".");  //存储到minio的文件名
+        String contentType = file.getContentType(); //类型
+        ObjectWriteResponse objectWriteResponse = minioService.putObject(bucketName, fileName, contentType, fileInputStream);
+        return Result.success(endpoint + "/" + bucketName + "/" + newFileName); //返回下载地址
     }
 
     /**
@@ -108,7 +105,7 @@ public class MinioController {
      */
     @GetMapping("/getHttpUrl")
     @ResponseBody
-    public Result<String> getHttpUrl(String filename) {
+    public Result<String> getHttpUrl(String filename) throws MinioException {
         String url = minioService.getObjectUrl(filename);
         return Result.success(url);
     }

@@ -28,8 +28,8 @@ public class ErpTestApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.setProperty("http.proxySet", "true");
-        System.setProperty("http.proxyHost", "127.0.0.1");
-        System.setProperty("http.proxyPort", "7890");
+//        System.setProperty("http.proxyHost", "127.0.0.1");
+//        System.setProperty("http.proxyPort", "7890");
         System.out.println("---------------------------------");
         System.out.println("  🚀启动成功!!!  环境为"+env);
         System.out.println("本地访问地址：http://localhost:" + port);
