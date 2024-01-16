@@ -1,13 +1,28 @@
 # erpTest
-闲暇时间写的一些练手的小Demo
+Some tool classes Demo 🧰
 
-#### 启动
-`java -jar`
 
-#### 默认端口
+> 发现 bug 请提交 [issues](https://github.com/carryhcc/testDemo/issues) (提问前建议阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md))  
+> 有任何想法、建议、或分享，请移步 [社区](https://github.com/carryhcc/testDemo/wiki)
+
+#### start
+`java -jar erpTest-0.0.1-SNAPSHOT.jar`
+
+#### default port
 `8081`
-#### emoji转换地址
+#### Access address
 `127.0.0.1:8081/index`
+
+#### Project Structure
+```jdk-17```
+```springboot-2.5.5```
+```mybatis-plus-3.4.3```
+```mysql-8.0.26```
+```minio-8.1.0```
+```notion-api-0.0.4```
+```chatGPT-1.0.0```
+
+
 
 ### 功能:
 * emoji转换
@@ -19,32 +34,15 @@
 * ~~随机生成装备~~
 * 新增功能 chatGPT
 
-### 感谢:
-以下公司不分先后顺序
 
-<a href="https://gitmoji.dev">
-    <img src="https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/Gitmoji.svg?style=flat-square" alt="Gitmoji">
-</a>
-<br />
-<a href="https://baomidou.com">
-    <img src="https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/mybatis_plus.svg?style=flat-square" width="20" height="20" alt="mybatis-Plus">
-    MyBatis-Plus
-</a>
 
 
 特别感谢 [JetBrains](https://www.jetbrains.com/?from=xgqfrms) 为我的开源项目提供免费的 [IntelliJ IDEA](https://www.jetbrains.com/go/?from=xgqfrms) 授权
 
-<p>
- <a href="https://www.jetbrains.com/?from=xgqfrms">
-   <img height="200" src="https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/idea_logo.png"  alt="idea">
- </a>
-</p>
 
 ### License
 
 The code is available under the MIT license.
-
+### 📃 开源许可
+[MIT License](https://github.com/carryhcc/testDemo?tab=MIT-1-ov-file#readme)
 <!-- Add the footer here -->
-#### 本项目合作伙伴以及答疑解惑
-
-![Footer](https://github.com/carryhcc/erpTest/blob/master/src/main/resources/templates/static/images/google_logo.png)
