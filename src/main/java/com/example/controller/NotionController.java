@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -48,8 +50,7 @@ public class NotionController {
 
     @PostMapping("/test")
     public Result test(@RequestBody Notion notion) {
-//        System.out.println(notion);
-//        ArrayList<String> objects = new ArrayList<>();
+        System.out.println(notion);
         BaseMapper<User> baseMapper = userService.getBaseMapper();
         log.info("error:{}", baseMapper);
         return Result.success(notion);

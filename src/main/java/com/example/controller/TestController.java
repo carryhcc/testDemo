@@ -14,6 +14,7 @@ import com.example.model.Result;
 import com.example.model.annotation.MethodLog;
 import com.example.service.ChatMsgService;
 import com.example.service.WxRebootService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,10 +42,10 @@ public class TestController {
     @Value("${server.env}")
     String env;
 
-    @Autowired
+    @Resource
     private ChatMsgService chatMsgService;
 
-    @Autowired
+    @Resource
     public WxRebootService wxRebootService;
 
     @MethodLog

@@ -16,6 +16,7 @@ import java.util.Date;
  * This class extends the Page class and implements the Serializable interface.
  * It provides data fields to store the ID, IP, start time, and end time of a chat message.
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ChatMsgDTO extends Page implements Serializable {
 

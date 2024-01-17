@@ -35,8 +35,8 @@ public class MultipartFileToFileUtil {
             //putStream in = multipartFile.getInputStream();
             out = new FileOutputStream(file);
             byte[] ss = multipartFile.getBytes();
-            for (int i = 0; i < ss.length; i++) {
-                out.write(ss[i]);
+            for (byte s : ss) {
+                out.write(s);
             }
         } catch (IOException e) {
             e.printStackTrace();

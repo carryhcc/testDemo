@@ -6,6 +6,7 @@ package com.example.config;
  * @author : cchu
  * Date: 2022/2/24 14:52
  */
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -39,35 +40,39 @@ public class VisibleThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
     }
 
     @Override
-    public void execute(Runnable task) {
+    public void execute(@NotNull Runnable task) {
         showThreadPoolInfo("1. do 结束");
         super.execute(task);
     }
 
     @Override
-    public void execute(Runnable task, long startTimeout) {
+    public void execute(@NotNull Runnable task, long startTimeout) {
         showThreadPoolInfo("2. do 结束");
         super.execute(task, startTimeout);
     }
 
+    @NotNull
     @Override
     public Future<?> submit(Runnable task) {
         showThreadPoolInfo("1. do 提交");
         return super.submit(task);
     }
 
+    @NotNull
     @Override
     public <T> Future<T> submit(Callable<T> task) {
         showThreadPoolInfo("2. do 提交");
         return super.submit(task);
     }
 
+    @NotNull
     @Override
     public ListenableFuture<?> submitListenable(Runnable task) {
         showThreadPoolInfo("1. 是否启用提交列表");
         return super.submitListenable(task);
     }
 
+    @NotNull
     @Override
     public <T> ListenableFuture<T> submitListenable(Callable<T> task) {
         showThreadPoolInfo("2. 是否启用提交列表");

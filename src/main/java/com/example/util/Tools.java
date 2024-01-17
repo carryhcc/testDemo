@@ -23,7 +23,7 @@ public class Tools {
     /**
      * 快速排序
      */
-    public class QuickSort {
+    public static class  QuickSort {
         public static void quickSort(Integer[] arr, int left, int right) {
             if (left < right) {
                 int pivotIndex = partition(arr, left, right);

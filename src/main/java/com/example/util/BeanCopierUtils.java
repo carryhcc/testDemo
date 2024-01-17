@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class BeanCopierUtils {
     // 实例缓存
-    public static Map<String, BeanCopier> beanCopierMap = new HashMap<String, BeanCopier>();
+    public static Map<String, BeanCopier> beanCopierMap = new HashMap<>();
 
     /***
      * 拷贝属性

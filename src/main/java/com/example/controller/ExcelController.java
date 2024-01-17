@@ -12,6 +12,8 @@ import com.example.model.UserConfig;
 import com.example.service.AsyncService;
 import com.example.service.UserConfigService;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,15 +45,15 @@ public class ExcelController {
     /**
      * pageHelper分页
      */
-//    public Result pageHelperList(){
-//        PageHelper.startPage(1, 1);
-//        QueryWrapper<UserConfig> userConfigQueryMapper = new QueryWrapper<>();
-//        userConfigQueryMapper.eq("id",1).eq("role","user");
-//        List<UserConfig> userConfigs = userConfigMapper.selectList(userConfigQueryMapper);
-//        PageInfo pageInfo = new PageInfo(userConfigs);
-//        System.out.println("返回结果："+pageInfo);
-//        return  Result.success(pageInfo);
-//    }
+    public Result pageHelperList(){
+        PageHelper.startPage(1, 1);
+        QueryWrapper<UserConfig> userConfigQueryMapper = new QueryWrapper<>();
+        userConfigQueryMapper.eq("id",1).eq("role","user");
+        List<UserConfig> userConfigs = userConfigMapper.selectList(userConfigQueryMapper);
+        PageInfo pageInfo = new PageInfo(userConfigs);
+        System.out.println("返回结果："+pageInfo);
+        return  Result.success(pageInfo);
+    }
     @GetMapping({"daochu", "fenye"})
     @DS("oracle")
     /**

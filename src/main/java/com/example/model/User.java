@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -22,14 +24,14 @@ public class User {
     private Integer age;
     @TableField(value = "EMAIL")
     private String email;
-//    @TableField(value = "ADDRESS")
-//    private String address;
-//    @TableField(value = "CREATE_AT")
-//    private Date createAt;
-//    @TableField(value = "UPDATE_AT")
-//    private String updateAt;
-//    @TableField(value = "CITY")
-//    private String city;
-//    @TableField(value = "PHONE")
-//    private String phone;
+    @TableField(value = "ADDRESS")
+    private String address;
+    @TableField(value = "CREATE_AT")
+    private Date createAt;
+    @TableField(value = "UPDATE_AT")
+    private String updateAt;
+    @TableField(value = "CITY")
+    private String city;
+    @TableField(value = "PHONE")
+    private String phone;
 }
