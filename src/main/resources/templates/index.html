@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>主页</title>
-
-    <button onclick="weibo()">weibo</button>
-    <button onclick="emoji()">emoji</button>
-
-    <script>
-        function weibo(){
-            window.location.href='/weibo';
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
-        function emoji(){
-            window.location.href='/emoji';
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-    </script>
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Homepage</h1>
+<button onclick="emoji()">Show Emoji</button>
+
+<script>
+    function emoji(){
+        window.location.href='/emoji';
+    }
+</script>
+</body>
 </html>
