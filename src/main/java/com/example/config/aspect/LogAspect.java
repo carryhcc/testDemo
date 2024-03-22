@@ -29,7 +29,7 @@ import java.util.List;
 public class LogAspect {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     {
         // 过滤对象的null属性.
@@ -47,21 +47,28 @@ public class LogAspect {
         objectMapper.registerModule(simpleModule);
     }
 
-    // 方法切入点  详情-切点表达式
+    /**
+     * 方法切入点  详情-切点表达式
+     */
     @Pointcut("@annotation(com.example.model.annotation.MethodLog)")
     private void annotationMethod() {
     }
 
-    // 前置通知 - 方法切入点
+    /**
+     * 前置通知 - 方法切入点
+     */
     @Before("annotationMethod()")
     private void methodBefore(JoinPoint joinPoint) {
     }
 
     @Around("annotationMethod()")
     private Object methodAround(ProceedingJoinPoint joinPoint) throws Throwable {
-        String className = joinPoint.getSignature().getDeclaringType().getSimpleName();// 获取请求的类名
-        String methodName = joinPoint.getSignature().getName();// 请求的方法
-        Object[] array = joinPoint.getArgs();// 传入的参数
+        // 获取请求的类名
+        String className = joinPoint.getSignature().getDeclaringType().getSimpleName();
+        // 请求的方法
+        String methodName = joinPoint.getSignature().getName();
+        // 传入的参数
+        Object[] array = joinPoint.getArgs();
         // 执行函数前打印日志
         logger.warn("--------------------------------");
         logger.info("调用前：{}：{},传递的参数为：{}", className, methodName, objectMapper.writeValueAsString(array));
@@ -72,8 +79,9 @@ public class LogAspect {
         return object;
     }
 
-
-    // 后置通知 - 方法切入点
+    /**
+     * 后置通知 - 方法切入点
+     */
     @After("annotationMethod()")
     private void methodAfter() {
     }

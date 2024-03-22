@@ -16,7 +16,7 @@ public class ThreadPoolService {
     /**
      * 自定义线程名称,方便出错的时候溯源
      */
-    private static final ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("HISCADA-POOL-%d").build();
+    private static final ThreadFactory NAMED_THREAD_FACTORY = new ThreadFactoryBuilder().setNameFormat("THREAD-POOL-%d").build();
 
     /**
      * corePoolSize    线程池核心池的大小
@@ -44,13 +44,13 @@ public class ThreadPoolService {
      * 　　ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务。（重复此过程）
      * 　　ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务。
      */
-    private static ExecutorService service = new ThreadPoolExecutor(
+    private static final ExecutorService SERVICE = new ThreadPoolExecutor(
             10,
             20,
             0L,
             TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>(4),
-            namedThreadFactory,
+            NAMED_THREAD_FACTORY,
             new ThreadPoolExecutor.AbortPolicy()
     );
 
@@ -60,7 +60,7 @@ public class ThreadPoolService {
      * @return 线程池
      */
     public static ExecutorService getEs() {
-        return service;
+        return SERVICE;
     }
 
     /**
@@ -70,10 +70,10 @@ public class ThreadPoolService {
      */
     public static void newTask(Runnable r) {
         System.out.println("创建任务成功");
-        service.execute(r);
+        SERVICE.execute(r);
     }
 
     public static void shutdown() {
-        service.shutdown();
+        SERVICE.shutdown();
     }
 }

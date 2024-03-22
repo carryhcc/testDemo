@@ -22,13 +22,13 @@ import java.util.List;
 @Service
 public class KeyManager implements ApplicationRunner {
 
-    private static final CircularBlockingQueue<String> keyQueue = new CircularBlockingQueue<>();
+    private static final CircularBlockingQueue<String> KEY_QUEUE = new CircularBlockingQueue<>();
 
     @Resource
     KeyConfig config;
 
     public synchronized String getKey() {
-        return keyQueue.next();
+        return KEY_QUEUE.next();
     }
     @Override
     public void run(ApplicationArguments args) {
@@ -42,7 +42,7 @@ public class KeyManager implements ApplicationRunner {
             }
             log.info("找到" + list.size() + "个配置的KEY"+"配置为"+ Arrays.toString(listDesensitized.toArray()));
             for (String key : list) {
-                keyQueue.add(key);
+                KEY_QUEUE.add(key);
             }
         } catch (Exception e) {
             log.error("获取key异常: ", e);
