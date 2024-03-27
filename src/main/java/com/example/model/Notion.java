@@ -2,6 +2,8 @@ package com.example.model;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 
 /**
  * The {@code Notion} class represents a notion object.
@@ -19,11 +21,12 @@ import lombok.Data;
  * </pre>
  * </p>
  *
+ * @author cchu
  * @see Data
  */
 
 @Data
-public class Notion {
+public class Notion implements Serializable {
     private String reboot;
     private String pereId;
     private String title;
