@@ -55,10 +55,10 @@ public class EmojiController {
             log.error(e.getMessage());
         }
         emojiMsg.setCreateAt(new Date());
-        service.save(emojiMsg);
+//        service.save(emojiMsg);
         //字符串转Unicode符
         String s = UnicodeUtil.toUnicode(code, true);
-        log.info("中途转换：{}", code);
+        log.info("中途转换：{}", s);
         StringBuilder emojiOut = new StringBuilder();
         char[] sList = s.toCharArray();
         for (char c : sList) {
