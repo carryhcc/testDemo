@@ -36,7 +36,7 @@ public class WebSocketServer {
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(SocketChannel ch) {
+                        public void initChannel(SocketChannel ch) {
                             ChannelPipeline pipeline = ch.pipeline();
                             //因为基于http协议，所以我们使用http的编码和解码器
                             pipeline.addLast(new HttpServerCodec());

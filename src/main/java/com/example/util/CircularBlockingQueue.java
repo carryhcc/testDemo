@@ -1,5 +1,7 @@
 package com.example.util;
 
+import lombok.Setter;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -13,6 +15,7 @@ public class CircularBlockingQueue<E> extends CircularQueue<E> {
      */
     protected final ReentrantLock putLock = new ReentrantLock();
 
+    @Setter
     private QueueListener listener;
 
     public CircularBlockingQueue() {
@@ -21,10 +24,6 @@ public class CircularBlockingQueue<E> extends CircularQueue<E> {
 
     public CircularBlockingQueue(QueueListener listener) {
         super();
-        this.listener = listener;
-    }
-
-    public void setListener(QueueListener listener) {
         this.listener = listener;
     }
 

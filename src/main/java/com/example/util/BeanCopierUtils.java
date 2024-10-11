@@ -49,7 +49,7 @@ public class BeanCopierUtils {
     @SuppressWarnings("rawtypes")
     public static <T> List<T> copyList(Collection sourceList, Class<T> destinationClass) throws InstantiationException, IllegalAccessException {
         List<T> destinationList = Lists.newArrayList();
-        if (sourceList == null || sourceList.size() == 0) { // 元数据为空
+        if (sourceList == null || sourceList.isEmpty()) { // 元数据为空
             return destinationList;
         }
 

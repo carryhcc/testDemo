@@ -1,11 +1,14 @@
 package com.example.model.enmu;
 
+import lombok.Getter;
+
 /**
  * Created by IntelliJ IDEA.
  *
  * @author : cchu
  * Date: 2021/12/29 09:55
  */
+@Getter
 public enum ResultEnum {
 
     /**
@@ -42,11 +45,4 @@ public enum ResultEnum {
         this.msg = msg;
     }
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
 }

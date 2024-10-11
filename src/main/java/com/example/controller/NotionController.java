@@ -7,6 +7,7 @@ import com.example.model.Notion;
 import com.example.model.Result;
 import com.example.model.User;
 import com.example.service.UserService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ public class NotionController {
     @Value("${others.notion.pereId}")
     private String pereId;
 
+    @Resource
     private UserService userService;
 
     @PostMapping("/addTest")
@@ -44,7 +46,7 @@ public class NotionController {
                 .header("Notion-Version", "2021-05-13")
                 .body(json)
                 .execute().body();
-//        System.out.print(JSONUtil.parseObj(result).toStringPretty());
+        System.out.print(JSONUtil.parseObj(result).toStringPretty());
         return JSONUtil.parseObj(result).toStringPretty();
     }
 

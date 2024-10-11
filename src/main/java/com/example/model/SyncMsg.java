@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
 @TableName("sync_msg")
 public class SyncMsg implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
